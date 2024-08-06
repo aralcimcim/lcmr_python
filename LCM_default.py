@@ -2,9 +2,6 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 from scipy.optimize import minimize
-from gym import Env
-from gymnasium.envs.registration import register
-from gymnasium.spaces import Discrete, Box
 
 #################################################################################################
 #                                                                                               #
@@ -539,19 +536,3 @@ def estimate_with_post_mean(data, opts, alpha):
     print(f"Subject {data['Subject_ID'].iloc[0]} estimated alpha: {post_mean_alpha} logBF: {logBF}")
 
     return df
-
-##################
-# Generate data #
-##################
-
-# def generate_stimuli_latent(trial_length=30):
-#     US = np.concatenate([np.ones(10), np.zeros(20)])
-#     CS = np.ones(trial_length)
-#     Context = np.concatenate([np.ones(10), np.zeros(10), np.ones(10)])
-
-#     data = np.column_stack((US, CS, Context))
-#     return data
-
-#############################################################
-# Create Gymnasium environment for LCM_infer & LCM_infer_rw #
-#############################################################
